@@ -4,6 +4,8 @@
  */
 package com.mycompany.salleproject;
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 /**
@@ -17,20 +19,27 @@ public class MyLabel extends JLabel{
     public MyLabel(String texte, int alignment){
         
         super(texte, alignment);
-        
+        SetUp();
     }
     
     public MyLabel(){
         
         super();
-        
+        SetUp();
     }
+   
     
     public void changeText(String texte) {
         this.setText(texte);
         
         
 }
+
+    private void SetUp() {
+    setBorder(BorderFactory.createCompoundBorder(
+        BorderFactory.createLineBorder(Color.BLACK),
+    BorderFactory.createEmptyBorder(8, 3, 3, 8)));
+    }
     
     
 }

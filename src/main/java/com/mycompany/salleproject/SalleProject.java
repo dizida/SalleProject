@@ -13,5 +13,6 @@ public class SalleProject {
     public static void main(String[] args) {
         
         MyFrame myFrame = new MyFrame("Ma Salle", 400, 800);
+        
     }
 }

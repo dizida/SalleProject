@@ -6,6 +6,7 @@ package com.mycompany.salleproject;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
@@ -32,11 +33,31 @@ public class MyFrame extends JFrame{
     }
       
         private void setUpAndDisplay() {
+            
+            JPanel mpp = new JPanel();
             MyPanel mp = new MyPanel();
+            MyPanel mp1 = new MyPanel();
+            MyPanel mp2 = new MyPanel();
+            InterfaceTitle iT = new InterfaceTitle();
+            Command cd = new Command();
+            //MyLabel myMppTitle = new MyLabel("titre2",0);
+            
+            mpp.setLayout(new BorderLayout());
+            mpp.setBackground(Color.BLUE);
+            mpp.add(mp, BorderLayout.WEST);
+            mpp.add(mp1, BorderLayout.CENTER);
+            mpp.add(mp2, BorderLayout.EAST);
+            mpp.add(iT,BorderLayout.NORTH );
+            mpp.add(cd, BorderLayout.SOUTH);
+            
+    
+
+       
+            
                     
             
             
-            this.add(mp);
+            this.add(mpp);
             //this.setSize(height, width);
             pack();
             this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

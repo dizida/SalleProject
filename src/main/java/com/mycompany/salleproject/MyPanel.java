@@ -18,6 +18,7 @@ import javax.swing.JTextField;
  */
 public class MyPanel extends JPanel{
     
+    
     public MyPanel(){
         
         super();
@@ -26,29 +27,29 @@ public class MyPanel extends JPanel{
     
     private void setUp() {
         
-        JPanel myPrincipalCanvas = new JPanel(new BorderLayout());
-        JPanel mySecondCanvas = new JPanel(new BorderLayout());
+        this.setLayout(new BorderLayout());
+
+        this.setBorder(BorderFactory.createCompoundBorder(
+        BorderFactory.createLineBorder(Color.BLACK),
+    BorderFactory.createEmptyBorder(8, 3, 3, 8)));
+        
+        JPanel myCanvas = new JPanel(new BorderLayout());
+        
+        this.setBackground(Color.ORANGE);
+        myCanvas.setBackground(Color.YELLOW);
+
 
         MyLabel myTitle = new MyLabel("titre",0);
         
         Box west = new Box(BoxLayout.PAGE_AXIS);
-        Box east = new Box(BoxLayout.LINE_AXIS);
+        Box east = new Box(BoxLayout.PAGE_AXIS);
         
-        JTextField textField1 = new JTextField();
+        JTextField textField1 = new JTextField(10);
         JTextField textField2 = new JTextField();
         JTextField textField3 = new JTextField();
-        JTextField textField4 = new JTextField();
+        JTextField textField4 = new JTextField(5);
         JTextField textField5 = new JTextField();
         JTextField textField6 = new JTextField();
-
-        //J'ajoute ma seconde JPanel qui va intégrer mes TextField au centre
-        myPrincipalCanvas.add(mySecondCanvas, BorderLayout.CENTER);
-        
-        //J'ajoute mon Jlabel à ma principale JPanel qui sera mon titre
-        myPrincipalCanvas.add(myTitle, BorderLayout.NORTH);
-        
-        mySecondCanvas.add(west, BorderLayout.WEST);
-        mySecondCanvas.add(west, BorderLayout.EAST);
         
         west.add(textField1);
         west.add(textField2);
@@ -57,6 +58,14 @@ public class MyPanel extends JPanel{
         east.add(textField5);
         east.add(textField6);
 
-        this.add(myPrincipalCanvas);
+        myCanvas.add(west, BorderLayout.CENTER);
+        myCanvas.add(east, BorderLayout.EAST);
+        
+        //J'ajoute mon Jlabel à ma principale JPanel qui sera mon titre
+        this.add(myTitle, BorderLayout.NORTH);
+        //J'ajoute ma seconde JPanel qui va intégrer mes TextField au centre
+        this.add(myCanvas, BorderLayout.CENTER);
+    
+     
     }   
 }
