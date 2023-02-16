@@ -36,7 +36,7 @@ public class MyPanel extends JPanel{
         JPanel myCanvas = new JPanel(new BorderLayout());
         
         this.setBackground(Color.ORANGE);
-        myCanvas.setBackground(Color.YELLOW);
+        myCanvas.setBackground(Color.green);
 
 
         MyLabel myTitle = new MyLabel("titre",0);

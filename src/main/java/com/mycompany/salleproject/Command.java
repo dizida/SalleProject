@@ -25,7 +25,7 @@ public class Command extends JPanel {
         this.setLayout(new BorderLayout());
         
         MyButton confirmCommand = new MyButton("Confirm your Command", PINK);
-        MyButton cancelConfirm = new MyButton("Confirm your Command", PINK);
+        MyButton cancelConfirm = new MyButton("Cancel your Order", PINK);
 
         this.add(confirmCommand, BorderLayout.CENTER);
         this.add(cancelConfirm, BorderLayout.EAST);

@@ -43,7 +43,7 @@ public class MyFrame extends JFrame{
             //MyLabel myMppTitle = new MyLabel("titre2",0);
             
             mpp.setLayout(new BorderLayout());
-            mpp.setBackground(Color.BLUE);
+            //mpp.setBackground(Color.BLUE);
             mpp.add(mp, BorderLayout.WEST);
             mpp.add(mp1, BorderLayout.CENTER);
             mpp.add(mp2, BorderLayout.EAST);
@@ -52,11 +52,7 @@ public class MyFrame extends JFrame{
             
     
 
-       
-            
-                    
-            
-            
+  
             this.add(mpp);
             //this.setSize(height, width);
             pack();

@@ -26,7 +26,7 @@ public class InterfaceTitle extends JPanel {
         
         MyLabel myInterfaceTitle = new MyLabel("Les Commandes de la Salle",0);
         
-        this.setBackground(Color.PINK);
+        this.setBackground(Color.lightGray);
         
         this.add(myInterfaceTitle);
     }
