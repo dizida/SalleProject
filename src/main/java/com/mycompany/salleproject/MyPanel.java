@@ -10,7 +10,10 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 
 /**
  *
@@ -18,12 +21,21 @@ import javax.swing.JTextField;
  */
 public class MyPanel extends JPanel{
     
+    private int nombreCase ;
     
     public MyPanel(){
         
         super();
+        this.setUp(); 
+        this.nombreCase=3;
+    }
+    
+    public MyPanel(int nombreCase){
+        
+        super();
         this.setUp();      
     }
+    
     
     private void setUp() {
         
@@ -39,27 +51,47 @@ public class MyPanel extends JPanel{
         myCanvas.setBackground(Color.green);
 
 
-        MyLabel myTitle = new MyLabel("titre",0);
+        MyLabel myTitle = new MyLabel("Entrées",0);
         
         Box west = new Box(BoxLayout.PAGE_AXIS);
         Box east = new Box(BoxLayout.PAGE_AXIS);
         
-        JTextField textField1 = new JTextField(10);
-        JTextField textField2 = new JTextField();
-        JTextField textField3 = new JTextField();
-        JTextField textField4 = new JTextField(5);
-        JTextField textField5 = new JTextField();
-        JTextField textField6 = new JTextField();
+        for (int i=0; i<nombreCase; ++i){
         
-        west.add(textField1);
-        west.add(textField2);
-        west.add(textField3);
-        east.add(textField4);
-        east.add(textField5);
-        east.add(textField6);
-
+        MyLabel entree1 = new MyLabel("Pate bolognaise au saumon", 2);
+        SpinnerModel model1 = new SpinnerNumberModel(1, 0, 100, 1); 
+        JSpinner sp1 = new JSpinner(model1);
+        west.add(entree1);
+        east.add(sp1);
         myCanvas.add(west, BorderLayout.CENTER);
         myCanvas.add(east, BorderLayout.EAST);
+        
+        }
+    
+        
+        /*SpinnerModel model1 = new SpinnerNumberModel(1, 0, 100, 1); 
+        SpinnerModel model2 = new SpinnerNumberModel(1, 0, 100, 1); 
+        SpinnerModel model3 = new SpinnerNumberModel(1, 0, 100, 1);
+        SpinnerModel model4 = new SpinnerNumberModel(1, 0, 100, 1);
+        
+        JSpinner sp1 = new JSpinner(model1); 
+        JSpinner sp2 = new JSpinner(model2);
+        JSpinner sp3 = new JSpinner(model3);
+        JSpinner sp4 = new JSpinner(model3);
+        
+        
+        west.add(entree1);
+        west.add(entree2);
+        west.add(entree3);
+        west.add(entree4);
+        
+        east.add(sp1);
+        east.add(sp2);
+        east.add(sp3);
+        east.add(sp4); */
+        
+
+       
         
         //J'ajoute mon Jlabel à ma principale JPanel qui sera mon titre
         this.add(myTitle, BorderLayout.NORTH);
