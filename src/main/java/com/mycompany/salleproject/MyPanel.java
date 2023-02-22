@@ -19,85 +19,66 @@ import javax.swing.SpinnerNumberModel;
  *
  * @author sarkissian
  */
-public class MyPanel extends JPanel{
-    
-    private int nombreCase ;
-    
-    public MyPanel(){
-        
+public class MyPanel extends JPanel {
+
+    private int nombreCase;
+    private String titreLabel;
+
+    public MyPanel() {
+
         super();
-        this.setUp(); 
-        this.nombreCase=3;
+        this.nombreCase = 3;
+        this.setUp();
+
     }
-    
-    public MyPanel(int nombreCase){
-        
+
+    public MyPanel(int nombreCase, String titreLabel) {
+
         super();
-        this.setUp();      
+        this.nombreCase = nombreCase;
+        this.titreLabel = titreLabel;
+        this.setUp();
+
     }
-    
-    
+
     private void setUp() {
-        
+
         this.setLayout(new BorderLayout());
 
-        this.setBorder(BorderFactory.createCompoundBorder(
-        BorderFactory.createLineBorder(Color.BLACK),
-    BorderFactory.createEmptyBorder(8, 3, 3, 8)));
-        
         JPanel myCanvas = new JPanel(new BorderLayout());
-        
+
         this.setBackground(Color.ORANGE);
-        myCanvas.setBackground(Color.green);
+        myCanvas.setBackground(Color.YELLOW);
 
+        MyLabel myTitle = new MyLabel(titreLabel, 0);
+        Box center = Box.createVerticalBox();
 
-        MyLabel myTitle = new MyLabel("Entrées",0);
+        for (int i = 0; i < nombreCase; ++i) {
+
+            MySecondPanel premiereLigne = new MySecondPanel();
+            center.add(premiereLigne, BorderLayout.CENTER);
+        }
+
+        myCanvas.add(center);
+        /*MyLabel entree1 = new MyLabel("Pate bolognaise au saumon", 2);
+        entree1.setSize(10, 3);
+        west.add(entree1);
         
-        Box west = new Box(BoxLayout.PAGE_AXIS);
-        Box east = new Box(BoxLayout.PAGE_AXIS);
-        
-        for (int i=0; i<nombreCase; ++i){
-        
-        MyLabel entree1 = new MyLabel("Pate bolognaise au saumon", 2);
         SpinnerModel model1 = new SpinnerNumberModel(1, 0, 100, 1); 
         JSpinner sp1 = new JSpinner(model1);
-        west.add(entree1);
+        sp1.setSize(3, 3);
         east.add(sp1);
+        
         myCanvas.add(west, BorderLayout.CENTER);
-        myCanvas.add(east, BorderLayout.EAST);
-        
-        }
-    
-        
-        /*SpinnerModel model1 = new SpinnerNumberModel(1, 0, 100, 1); 
-        SpinnerModel model2 = new SpinnerNumberModel(1, 0, 100, 1); 
-        SpinnerModel model3 = new SpinnerNumberModel(1, 0, 100, 1);
-        SpinnerModel model4 = new SpinnerNumberModel(1, 0, 100, 1);
-        
-        JSpinner sp1 = new JSpinner(model1); 
-        JSpinner sp2 = new JSpinner(model2);
-        JSpinner sp3 = new JSpinner(model3);
-        JSpinner sp4 = new JSpinner(model3);
-        
-        
-        west.add(entree1);
-        west.add(entree2);
-        west.add(entree3);
-        west.add(entree4);
-        
-        east.add(sp1);
-        east.add(sp2);
-        east.add(sp3);
-        east.add(sp4); */
-        
+        myCanvas.add(east, BorderLayout.EAST);*/
+        this.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(Color.BLACK),
+                BorderFactory.createEmptyBorder(8, 3, 3, 8)));
 
-       
-        
         //J'ajoute mon Jlabel à ma principale JPanel qui sera mon titre
         this.add(myTitle, BorderLayout.NORTH);
         //J'ajoute ma seconde JPanel qui va intégrer mes TextField au centre
         this.add(myCanvas, BorderLayout.CENTER);
-    
-     
-    }   
+
+    }
 }

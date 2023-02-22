@@ -23,8 +23,11 @@ public class MyButton extends JButton {
      }
 
     private void setUp() {
-        this.setBackground(this.color);
+        
+        this.setBackground(color);
         this.setOpaque(true);
+        this.setBorderPainted(false);
+        
     }
     
 }

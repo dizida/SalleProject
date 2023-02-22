@@ -35,9 +35,9 @@ public class MyFrame extends JFrame{
         private void setUpAndDisplay() {
             
             JPanel mpp = new JPanel();
-            MyPanel mp = new MyPanel(4);
-            MyPanel mp1 = new MyPanel(3);
-            MyPanel mp2 = new MyPanel(4);
+            MyPanel mp = new MyPanel(4, "Entrées");
+            MyPanel mp1 = new MyPanel(3, "Plats");
+            MyPanel mp2 = new MyPanel(4, "Desserts");
             InterfaceTitle iT = new InterfaceTitle();
             Command cd = new Command();
             //MyLabel myMppTitle = new MyLabel("titre2",0);

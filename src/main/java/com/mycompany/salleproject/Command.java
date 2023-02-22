@@ -5,7 +5,9 @@
 package com.mycompany.salleproject;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import static java.awt.Color.PINK;
+import java.awt.FlowLayout;
 import javax.swing.JPanel;
 
 /**
@@ -22,13 +24,15 @@ public class Command extends JPanel {
 
     private void setUp() {
         
-        this.setLayout(new BorderLayout());
+        this.setLayout(new FlowLayout(2));
         
-        MyButton confirmCommand = new MyButton("Confirm your Command", PINK);
-        MyButton cancelConfirm = new MyButton("Cancel your Order", PINK);
+        MyButton confirmCommand = new MyButton("Confirm your Command", Color.GREEN);
+        MyButton cancelConfirm = new MyButton("Cancel your Order", Color.RED);
 
         this.add(confirmCommand, BorderLayout.CENTER);
         this.add(cancelConfirm, BorderLayout.EAST);
     }
+
+   
     
 }
