@@ -5,6 +5,7 @@
 package com.mycompany.salleproject;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 
 /**
@@ -29,5 +30,7 @@ public class MyButton extends JButton {
         this.setBorderPainted(false);
         
     }
+    
+    
     
 }

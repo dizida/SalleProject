@@ -6,6 +6,7 @@ package com.mycompany.salleproject;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -23,6 +24,7 @@ public class MyPanel extends JPanel {
 
     private int nombreCase;
     private String titreLabel;
+    private ArrayList<String> list;
 
     public MyPanel() {
 
@@ -32,11 +34,12 @@ public class MyPanel extends JPanel {
 
     }
 
-    public MyPanel(int nombreCase, String titreLabel) {
+    public MyPanel(int nombreCase, String titreLabel, ArrayList<String> list) {
 
         super();
         this.nombreCase = nombreCase;
         this.titreLabel = titreLabel;
+        this.list = list;
         this.setUp();
 
     }
@@ -54,23 +57,13 @@ public class MyPanel extends JPanel {
         Box center = Box.createVerticalBox();
 
         for (int i = 0; i < nombreCase; ++i) {
-
-            MySecondPanel premiereLigne = new MySecondPanel();
+            String a = list.get(i);
+            MySecondPanel premiereLigne = new MySecondPanel(a);
             center.add(premiereLigne, BorderLayout.CENTER);
         }
 
         myCanvas.add(center);
-        /*MyLabel entree1 = new MyLabel("Pate bolognaise au saumon", 2);
-        entree1.setSize(10, 3);
-        west.add(entree1);
-        
-        SpinnerModel model1 = new SpinnerNumberModel(1, 0, 100, 1); 
-        JSpinner sp1 = new JSpinner(model1);
-        sp1.setSize(3, 3);
-        east.add(sp1);
-        
-        myCanvas.add(west, BorderLayout.CENTER);
-        myCanvas.add(east, BorderLayout.EAST);*/
+
         this.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK),
                 BorderFactory.createEmptyBorder(8, 3, 3, 8)));
