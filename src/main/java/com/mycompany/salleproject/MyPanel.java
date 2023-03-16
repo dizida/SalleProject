@@ -24,21 +24,17 @@ public class MyPanel extends JPanel {
 
     private int nombreCase;
     private String titreLabel;
-    private ArrayList<String> list;
+    private ArrayList<Dish> list; //Création d'une arrayList de plat qui sera lu par mes Jlabel
+    private ArrayList<MySpinner> fusion; //Fusion de mes trois JSpiner
 
-    public MyPanel() {
 
-        super();
-        this.nombreCase = 3;
-        this.setUp();
-
-    }
-
-    public MyPanel(int nombreCase, String titreLabel, ArrayList<String> list) {
+    public MyPanel(int nombreCase, String titreLabel, ArrayList<Dish> list) {
 
         super();
         this.nombreCase = nombreCase;
         this.titreLabel = titreLabel;
+        ArrayList<MySpinner> b = new ArrayList<MySpinner> ();
+        this.fusion = b;
         this.list = list;
         this.setUp();
 
@@ -57,11 +53,14 @@ public class MyPanel extends JPanel {
         Box center = Box.createVerticalBox();
 
         for (int i = 0; i < nombreCase; ++i) {
-            String a = list.get(i);
+            Dish a = list.get(i);
             MySecondPanel premiereLigne = new MySecondPanel(a);
+            fusion.addAll(premiereLigne.getA()); //fusion ArrayList
             center.add(premiereLigne, BorderLayout.CENTER);
+            
         }
-
+        
+      
         myCanvas.add(center);
 
         this.setBorder(BorderFactory.createCompoundBorder(
@@ -70,8 +69,15 @@ public class MyPanel extends JPanel {
 
         //J'ajoute mon Jlabel à ma principale JPanel qui sera mon titre
         this.add(myTitle, BorderLayout.NORTH);
-        //J'ajoute ma seconde JPanel qui va intégrer mes TextField au centre
+        //J'ajoute mon second JPanel qui va intégrer mes spinner au centre
         this.add(myCanvas, BorderLayout.CENTER);
 
+    }
+
+    /**
+     * @return the fusion
+     */
+    public ArrayList<MySpinner> getFusion() {
+        return fusion;
     }
 }

@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.*;
 import java.util.ArrayList;
+import javax.swing.JSpinner;
 
 /**
  *
@@ -24,24 +25,27 @@ public class MyFrame extends JFrame {
     private String title;
     private int width;
     private int height;
+    private ArrayList<MySpinner> fusionBis;
 
     public MyFrame(String title, int width, int height) {
         super(title);
         this.width = width;
         this.height = height;
+        ArrayList<MySpinner> b = new ArrayList<MySpinner> ();
+        this.fusionBis = b;
         this.setUpAndDisplay();
     }
 
     private void setUpAndDisplay() {
 
-        ReadJson j1 = new ReadJson();
-        ArrayList<String> entree = j1.readEntree();
+        ReadJson j1 = new ReadJson();  // permet de mettre dans mes jLabel mes entrées
+        ArrayList<Dish> entree = j1.readEntree();
         
         ReadJson j2 = new ReadJson();
-        ArrayList<String> plates = j2.readPlate();
+        ArrayList<Dish> plates = j2.readPlate();
         
         ReadJson j3 = new ReadJson();
-        ArrayList<String> dessert = j2.readDessert();
+        ArrayList<Dish> dessert = j2.readDessert();
         
 
         JPanel mpp = new JPanel();
@@ -50,10 +54,38 @@ public class MyFrame extends JFrame {
         MyPanel mp2 = new MyPanel(dessert.size(), "Desserts", dessert);
         InterfaceTitle iT = new InterfaceTitle();
         Command cd = new Command();
-        //MyLabel myMppTitle = new MyLabel("titre2",0);
+        
+        fusionBis.addAll(mp.getFusion());
+        fusionBis.addAll(mp1.getFusion());
+        fusionBis.addAll(mp2.getFusion());//fusion ArrayList
+        
+        // Permet d'effacer les quantités
+        cd.getReset().addActionListener(e -> { 
+            for(JSpinner f : fusionBis){
+                f.setValue(0);
+            }
+        });
+        
+        cd.getConfirmCommand().addActionListener(e -> {
+            for(MySpinner f : fusionBis){
+                f.getDish().setQty((int) f.getValue());
+            }
+            WriteJson ecritor = new WriteJson();
+            ecritor.generator(entree, plates, dessert);
+            
+            //Remet mes spinner à 0
+            for(JSpinner f : fusionBis){
+                f.setValue(0);
+            }
+        });
+        
+        
+        
+        
+        
 
         mpp.setLayout(new BorderLayout());
-        //mpp.setBackground(Color.BLUE);
+        
         mpp.add(mp, BorderLayout.WEST);
         mpp.add(mp1, BorderLayout.CENTER);
         mpp.add(mp2, BorderLayout.EAST);

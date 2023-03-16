@@ -14,5 +14,6 @@ public class SalleProject {
         
         MyFrame myFrame = new MyFrame("Ma Salle", 400, 800);
         
+        
     }
 }

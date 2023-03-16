@@ -5,6 +5,8 @@
 package com.mycompany.salleproject;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
@@ -17,31 +19,35 @@ import javax.swing.SpinnerNumberModel;
  */
 public class MySecondPanel extends JPanel {
 
-    String namePlate;
-    private ArrayList<JSpinner> a;
+    private Dish namePlate;
+    private ArrayList<MySpinner> a;
+    
+    
 
-    public MySecondPanel(String namePlate) {
+    public MySecondPanel(Dish namePlate) {
 
         super();
         this.namePlate = namePlate;
+        ArrayList<MySpinner> b = new ArrayList<MySpinner>();
         this.a = b;
         this.setUp();
 
     }
 
-    //ArrayList<JSpinner> b = new ArrayList<JSpinner>();
+    
 
     private void setUp() {
         
 
-        this.setLayout(new BorderLayout());
-        MyLabel entree1 = new MyLabel(namePlate, 2);
+        this.setLayout(new GridLayout());
+        //Je récupère la despription de mon plat
+        MyLabel entree1 = new MyLabel(namePlate.getDescription(), 2); 
 
-        //SpinnerModel model1 = new SpinnerNumberModel(0, 0, 100, 1);
-        //JSpinner sp1 = new JSpinner(model1);
-        //sp1.setSize(3, 3);
-        MySpinner sp1 = new MySpinner(5, 5);
-        b.add(sp1);
+       
+        //Création d'un spinner qui est associé à un plat qui lui même est associé à la description Dish
+        MySpinner sp1 = new MySpinner(namePlate);
+        //J'ajoute mon spinner à mon arraylist de spinner
+        a.add(sp1); 
 
         this.add(entree1, BorderLayout.WEST);
         this.add(sp1, BorderLayout.EAST);
@@ -51,8 +57,8 @@ public class MySecondPanel extends JPanel {
     /**
      * @return the a
      */
-    public ArrayList<JSpinner> getA() {
-        return b;
+    public ArrayList<MySpinner> getA() {
+        return a;
     }
 
 }
