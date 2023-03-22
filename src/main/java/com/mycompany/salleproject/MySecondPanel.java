@@ -39,18 +39,20 @@ public class MySecondPanel extends JPanel {
     private void setUp() {
         
 
-        this.setLayout(new GridLayout());
+        this.setLayout(new BorderLayout());
         //Je récupère la despription de mon plat
         MyLabel entree1 = new MyLabel(namePlate.getDescription(), 2); 
-
+        
        
         //Création d'un spinner qui est associé à un plat qui lui même est associé à la description Dish
         MySpinner sp1 = new MySpinner(namePlate);
         //J'ajoute mon spinner à mon arraylist de spinner
         a.add(sp1); 
 
-        this.add(entree1, BorderLayout.WEST);
+        this.add(entree1, BorderLayout.CENTER);
         this.add(sp1, BorderLayout.EAST);
+        
+
 
     }
 

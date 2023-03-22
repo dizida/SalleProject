@@ -6,6 +6,10 @@ package com.mycompany.salleproject;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
+import java.awt.LayoutManager2;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -47,7 +51,7 @@ public class MyPanel extends JPanel {
         JPanel myCanvas = new JPanel(new BorderLayout());
 
         this.setBackground(Color.ORANGE);
-        myCanvas.setBackground(Color.YELLOW);
+        myCanvas.setBackground(Color.ORANGE);
 
         MyLabel myTitle = new MyLabel(titreLabel, 0);
         Box center = Box.createVerticalBox();
@@ -56,21 +60,34 @@ public class MyPanel extends JPanel {
             Dish a = list.get(i);
             MySecondPanel premiereLigne = new MySecondPanel(a);
             fusion.addAll(premiereLigne.getA()); //fusion ArrayList
-            center.add(premiereLigne, BorderLayout.CENTER);
-            
+            center.add(premiereLigne, BorderLayout.CENTER);   
         }
         
-      
+       
+        JPanel third = new JPanel(new GridLayout(0, 1));
+        JPanel fourth = new JPanel(new GridLayout(0, 1));
+        
         myCanvas.add(center);
+        
+        // Pour avoir mon quantité
+        MyThirdPanel a = new MyThirdPanel();  
 
         this.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(Color.BLACK),
                 BorderFactory.createEmptyBorder(8, 3, 3, 8)));
 
-        //J'ajoute mon Jlabel à ma principale JPanel qui sera mon titre
-        this.add(myTitle, BorderLayout.NORTH);
+        //J'ajoute mon Jlabel à mon 3e panel qui sera mon titre
+        third.add(myTitle, BorderLayout.NORTH);
+        third.add(a, BorderLayout.SOUTH);
+        this.add(third, BorderLayout.NORTH);
+        //this.add(myTitle, BorderLayout.NORTH);
         //J'ajoute mon second JPanel qui va intégrer mes spinner au centre
         this.add(myCanvas, BorderLayout.CENTER);
+        
+        MyFourthPanel b = new MyFourthPanel();
+        fourth.add(b, BorderLayout.SOUTH);
+        this.add(fourth, BorderLayout.SOUTH);
+        
 
     }
 

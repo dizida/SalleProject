@@ -62,11 +62,11 @@ public class WriteJson {
         
         
        
-        System.out.print(obj);
+        System.out.println(obj);
 
         try {
 
-            FileWriter file = new FileWriter("/Users/sarkissian/Downloads/restaurant_commande.Json" + tsp);
+            FileWriter file = new FileWriter("restaurant_commande.Json" + tsp);
             file.write(obj.toJSONString());
             file.flush();
             file.close();

@@ -67,6 +67,7 @@ public class MyFrame extends JFrame {
         });
         
         cd.getConfirmCommand().addActionListener(e -> {
+            
             for(MySpinner f : fusionBis){
                 f.getDish().setQty((int) f.getValue());
             }

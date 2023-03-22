@@ -22,6 +22,14 @@ public class MyLabel extends JLabel{
         SetUp();
     }
     
+    public MyLabel(String texte){
+        
+        super(texte);
+        SetUp();
+    }
+    
+    
+    
     public MyLabel(){
         
         super();
