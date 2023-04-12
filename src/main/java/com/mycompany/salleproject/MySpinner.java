@@ -14,18 +14,18 @@ import javax.swing.SpinnerNumberModel;
  */
 public class MySpinner extends JSpinner {
 
-    int width;
-    int height;
+    private int width;
+    private int height;
     private Dish dish;
 
     public MySpinner(Dish dish)  { // J'associe mon JSpinner à un objet dish
         super(new SpinnerNumberModel(0, 0, 100, 1));
         this.dish = dish;
-        this.setUp();
+        //this.setUp();
 
     }
 
-    public MySpinner(int width, int height) {
+    /* public MySpinner(int width, int height) {
         super();
         this.setUp();
         this.width = width;
@@ -37,7 +37,7 @@ public class MySpinner extends JSpinner {
         
         this.setSize(WIDTH, HEIGHT);
 
-    }
+    }*/
 
     public void resetJSpinner(JSpinner sp) {
 

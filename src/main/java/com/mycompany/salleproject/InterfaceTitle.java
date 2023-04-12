@@ -24,7 +24,8 @@ public class InterfaceTitle extends JPanel {
         
         this.setLayout(new BorderLayout());
         
-        MyLabel myInterfaceTitle = new MyLabel("Les Commandes de la Salle",0);
+        MyLabel myInterfaceTitle = new MyLabel("Commandes de la Salle");
+        myInterfaceTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         
         this.setBackground(Color.lightGray);
         

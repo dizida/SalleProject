@@ -28,25 +28,36 @@ public class ReadJson {
 
     public ArrayList readEntree() {
 
-        JSONParser j1 = new JSONParser();
+        //permettra d'analyser le texte de mon fichier
+        JSONParser j1 = new JSONParser(); 
 
-        ArrayList list_entree = new ArrayList(); //Création d'une arraylist qui sera lu pour mon jlabel
+        //Création d'une arraylist qui sera lu et ajouté dans mes Jlabel titre
+        ArrayList list_entree = new ArrayList(); 
 
         try {
-            JSONObject jsonO = (JSONObject) j1.parse(new FileReader("/Users/sarkissian/Downloads/restaurant_exemple_menu.json"));
+            //File rider va trouver mon fichier stocké dans mon répertoire
+            JSONObject jsonO = (JSONObject) j1.parse(new FileReader("menu.json"));// "menu.json"
 
+            // Récupère la valeur associé à la clé starter et la convertie en json array
             JSONArray starters = (JSONArray) jsonO.get("starters"); //cherche la liste starters
             
-            // Permettra de parcourir ma liste starters
+            // Création d'un objet iterator de type jsonobjet permettant de parcourir les éléments 
             Iterator<JSONObject> startersList = starters.iterator(); 
-            // On parcourt notre liste de straters tant que hasNext est vrai la boucle continue
+            
+            // On parcourt notre tableau de starters tant que hasNext renvoie true la boucle continue
             while (startersList.hasNext()) {
-                JSONObject entree = startersList.next();//lecture première entrée
+                
+                
+                JSONObject entree = startersList.next();
 
-                Long id = (Long) entree.get("id");//récupère l'id de mon entrée
-                String description = (String) entree.get("description");// récupère description de mon entrée
+                //récupère l'id de mon entrée
+                Long id = (Long) entree.get("id");
+                
+                // récupère description de mon entrée
+                String description = (String) entree.get("description");
 
-                list_entree.add(new Dish(id,description));//Ajoute sous forme de Dish mon id et ma description
+                //Création d'un nouveau plat avec son id et sa description 
+                list_entree.add(new Dish(id,description));
 
             }
 
@@ -69,7 +80,7 @@ public class ReadJson {
         ArrayList<Dish> list_Plate = new ArrayList();
 
         try {
-            JSONObject jsonO = (JSONObject) j2.parse(new FileReader("/Users/sarkissian/Downloads/restaurant_exemple_menu.json"));
+            JSONObject jsonO = (JSONObject) j2.parse(new FileReader("menu.json"));
 
             JSONArray main_courses = (JSONArray) jsonO.get("main_courses"); //cherche la mainCourse plats
             
@@ -105,7 +116,7 @@ public class ReadJson {
         ArrayList list_Desserts = new ArrayList();
 
         try {
-            JSONObject jsonO = (JSONObject) j3.parse(new FileReader("/Users/sarkissian/Downloads/restaurant_exemple_menu.json"));
+            JSONObject jsonO = (JSONObject) j3.parse(new FileReader("menu.json"));
 
             JSONArray desserts = (JSONArray) jsonO.get("desserts"); //cherche la liste dessert
             

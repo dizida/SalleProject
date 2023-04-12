@@ -79,12 +79,7 @@ public class MyFrame extends JFrame {
                 f.setValue(0);
             }
         });
-        
-        
-        
-        
-        
-
+    
         mpp.setLayout(new BorderLayout());
         
         mpp.add(mp, BorderLayout.WEST);

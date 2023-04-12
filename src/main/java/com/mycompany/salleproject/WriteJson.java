@@ -66,7 +66,7 @@ public class WriteJson {
 
         try {
 
-            FileWriter file = new FileWriter("restaurant_commande.Json" + tsp);
+            FileWriter file = new FileWriter("order_"+ tsp+ ".Json" );
             file.write(obj.toJSONString());
             file.flush();
             file.close();

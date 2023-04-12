@@ -50,8 +50,8 @@ public class MyPanel extends JPanel {
 
         JPanel myCanvas = new JPanel(new BorderLayout());
 
-        this.setBackground(Color.ORANGE);
-        myCanvas.setBackground(Color.ORANGE);
+        //this.setBackground(Color.ORANGE);
+        //myCanvas.setBackground(Color.ORANGE);
 
         MyLabel myTitle = new MyLabel(titreLabel, 0);
         Box center = Box.createVerticalBox();

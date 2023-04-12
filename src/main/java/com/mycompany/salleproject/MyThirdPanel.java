@@ -28,8 +28,7 @@ public class MyThirdPanel extends JPanel{
         JLabel c = new JLabel(); 
         JLabel b = new JLabel(); 
         
-        //JLabel d = new JLabel(); 
-        //JLabel e = new JLabel(); 
+        
         // Tu utilises le label par défaut pour ne pas avoir de setBorder
         JLabel a = new JLabel("Quantitées", 2); 
         a.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -37,9 +36,6 @@ public class MyThirdPanel extends JPanel{
         this.add(b);
         this.add(a);
         this.add(c);
-        //this.add(d);
-        //this.add(e);
-        
 
     }
             

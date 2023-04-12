@@ -14,7 +14,7 @@ import javax.swing.JButton;
  */
 public class MyButton extends JButton {
     
-    Color color;
+    private Color color;
      
      
      public MyButton(String text, Color color) {
