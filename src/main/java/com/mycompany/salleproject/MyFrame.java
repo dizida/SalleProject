@@ -38,7 +38,8 @@ public class MyFrame extends JFrame {
 
     private void setUpAndDisplay() {
 
-        ReadJson j1 = new ReadJson();  // permet de mettre dans mes jLabel mes entrées
+        // permet de mettre dans mes jLabel mes entrées
+        ReadJson j1 = new ReadJson();  
         ArrayList<Dish> entree = j1.readEntree();
         
         ReadJson j2 = new ReadJson();
@@ -66,11 +67,13 @@ public class MyFrame extends JFrame {
             }
         });
         
+        //met à jour la quantité de chaque plat
         cd.getConfirmCommand().addActionListener(e -> {
             
             for(MySpinner f : fusionBis){
                 f.getDish().setQty((int) f.getValue());
             }
+            
             WriteJson ecritor = new WriteJson();
             ecritor.generator(entree, plates, dessert);
             
@@ -89,7 +92,6 @@ public class MyFrame extends JFrame {
         mpp.add(cd, BorderLayout.SOUTH);
 
         this.add(mpp);
-        //this.setSize(height, width);
         pack();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setVisible(true);

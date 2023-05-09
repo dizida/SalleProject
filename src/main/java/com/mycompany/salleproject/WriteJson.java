@@ -28,8 +28,8 @@ public class WriteJson {
         //Rajout de l'id du début, le temps écoulé
         
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        String tsp = timestamp.getTime() + ""; //Transformation en string
-        obj.put("id", tsp);
+        String tsp = timestamp.getTime() + ""; //Transformation en string grâce à ""
+        obj.put("id", tsp); 
                
         JSONArray starters = new JSONArray();//création d'une liste d'objet
         for (Dish s : list_entree){
@@ -38,7 +38,7 @@ public class WriteJson {
             starters2.put("id", s.getId());
             starters2.put("qty", s.getQty());
             starters.add(starters2);// j'ajoute mon objet à ma liste 
-        } obj.put("Starters", starters);
+        } obj.put("starters", starters);//La liste "starters" est ajoutée à l'objet JSON global 
         
         
         
@@ -58,7 +58,7 @@ public class WriteJson {
             desserts2.put("id", s.getId());
             desserts2.put("qty", s.getQty());
             desserts.add(desserts2);// j'ajoute mon objet à ma liste 
-        } obj.put("Desserts", desserts);
+        } obj.put("desserts", desserts);
         
         
        
@@ -66,17 +66,14 @@ public class WriteJson {
 
         try {
 
-            FileWriter file = new FileWriter("order_"+ tsp+ ".Json" );
+            FileWriter file = new FileWriter("order_"+ tsp+ ".json" );
             file.write(obj.toJSONString());
             file.flush();
-            file.close();
+            file.close(); //ferme le flux d'écriture du fichier 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-       //return obj.toJSONString();
-               
 
     
 

@@ -21,24 +21,10 @@ public class MySpinner extends JSpinner {
     public MySpinner(Dish dish)  { // J'associe mon JSpinner à un objet dish
         super(new SpinnerNumberModel(0, 0, 100, 1));
         this.dish = dish;
-        //this.setUp();
-
-    }
-
-    /* public MySpinner(int width, int height) {
-        super();
-        this.setUp();
-        this.width = width;
-        this.height = height;
-
-    }
-
-    private void setUp() {
         
-        this.setSize(WIDTH, HEIGHT);
 
-    }*/
-
+    }
+    // Remise à 0 de mes jspinner
     public void resetJSpinner(JSpinner sp) {
 
         sp.setValue(0);

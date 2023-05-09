@@ -50,8 +50,6 @@ public class MyPanel extends JPanel {
 
         JPanel myCanvas = new JPanel(new BorderLayout());
 
-        //this.setBackground(Color.ORANGE);
-        //myCanvas.setBackground(Color.ORANGE);
 
         MyLabel myTitle = new MyLabel(titreLabel, 0);
         Box center = Box.createVerticalBox();
@@ -69,7 +67,7 @@ public class MyPanel extends JPanel {
         
         myCanvas.add(center);
         
-        // Pour avoir mon quantité
+        // Pour avoir ma quantité
         MyThirdPanel a = new MyThirdPanel();  
 
         this.setBorder(BorderFactory.createCompoundBorder(
@@ -80,7 +78,7 @@ public class MyPanel extends JPanel {
         third.add(myTitle, BorderLayout.NORTH);
         third.add(a, BorderLayout.SOUTH);
         this.add(third, BorderLayout.NORTH);
-        //this.add(myTitle, BorderLayout.NORTH);
+        
         //J'ajoute mon second JPanel qui va intégrer mes spinner au centre
         this.add(myCanvas, BorderLayout.CENTER);
         

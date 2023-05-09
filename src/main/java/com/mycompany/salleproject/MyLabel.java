@@ -28,26 +28,15 @@ public class MyLabel extends JLabel{
         SetUp();
     }
     
-    
-    
-    public MyLabel(){
-        
-        super();
-        SetUp();
-    }
-   
-    
     public void changeText(String texte) {
         this.setText(texte);
         
         
 }
-
     private void SetUp() {
     setBorder(BorderFactory.createCompoundBorder(
         BorderFactory.createLineBorder(Color.BLACK),
-    BorderFactory.createEmptyBorder(8, 3, 3, 8)));
+    BorderFactory.createEmptyBorder(8,8,8,8)));
     }
-    
     
 }

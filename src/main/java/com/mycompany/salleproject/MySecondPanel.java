@@ -34,8 +34,6 @@ public class MySecondPanel extends JPanel {
 
     }
 
-    
-
     private void setUp() {
         
 
@@ -52,8 +50,6 @@ public class MySecondPanel extends JPanel {
         this.add(entree1, BorderLayout.CENTER);
         this.add(sp1, BorderLayout.EAST);
         
-
-
     }
 
     /**

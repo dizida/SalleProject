@@ -8,6 +8,7 @@ package com.mycompany.salleproject;
  *
  * @author sarkissian
  */
+// Création d'une classe plat qui va me permettre de créer des objets de type plat
 public class Dish {
     
     private Long id;

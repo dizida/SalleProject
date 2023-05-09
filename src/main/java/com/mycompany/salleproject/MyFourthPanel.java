@@ -25,6 +25,7 @@ public class MyFourthPanel extends JPanel{
     private void setUp() {
         
         this.setLayout(new BorderLayout());
+        
         // Création de label vide pour aérer mon interface
         JLabel c = new JLabel("    "); 
         JLabel b = new JLabel("    ");  
@@ -32,7 +33,6 @@ public class MyFourthPanel extends JPanel{
        this.add(b, BorderLayout.NORTH);
        this.add(c, BorderLayout.SOUTH);
         
-        //this.setBackground(Color.PINK);
         
 
     }
